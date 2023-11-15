@@ -27,7 +27,7 @@ jobs:
             const today = new Date()
 
             // Get all open PRs targeting `main`
-            const { pulls } = await github.rest.pulls.list({
+            const { data } = await github.rest.pulls.list({
               owner: context.repo.owner,
               repo: context.repo.repo,
               state: 'open',
@@ -35,7 +35,7 @@ jobs:
             })
 
             // Filter out Dependabot, Actions, and PRs not 1/3/5 days old
-            const offending = pulls.filter(
+            const offending = data.filter(
               (pr) =>
                 pr.user.login !== 'github-actions[bot]' &&
                 pr.user.login !== 'dependabot[bot]' &&
