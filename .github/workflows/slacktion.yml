@@ -92,7 +92,7 @@ jobs:
                           },
                           {
                             type: 'text',
-                            text: ` - @${Math.floor(
+                            text: ` - ${Math.floor(
                               (today.getTime() - new Date(pr.created_at).getTime()) /
                               (1000 * 3600 * 24)
                             )} days`
