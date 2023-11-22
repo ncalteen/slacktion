@@ -39,6 +39,8 @@ jobs:
               (pr) =>
                 pr.user.login !== 'github-actions[bot]' &&
                 pr.user.login !== 'dependabot[bot]' &&
+                pr.head.ref.includes('releases') &&
+                pr.draft === false &&
                 [0, 1, 3, 5].includes(
                   Math.floor(
                     (today.getTime() - new Date(pr.created_at).getTime()) /
